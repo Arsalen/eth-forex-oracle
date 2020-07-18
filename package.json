@@ -1,5 +1,5 @@
 {
-  "name": "oracle-reporter",
+  "name": "eth-forex-reporter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arsalen/oracle-reporter.git"
+    "url": "git+https://github.com/Arsalen/eth-forex-reporter.git"
   },
   "keywords": [
-    "Ethereum"
+    "Ethereum",
+    "Forex"
   ],
   "author": "Arsalen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Arsalen/oracle-reporter/issues"
+    "url": "https://github.com/Arsalen/eth-forex-reporter/issues"
   },
-  "homepage": "https://github.com/Arsalen/oracle-reporter#readme"
+  "homepage": "https://github.com/Arsalen/eth-forex-reporter#readme"
 }

@@ -6,4 +6,6 @@ exports.sourceEp = new EndPoint(config.sourceHost);
 
 exports.destinationEp = new EndPoint(config.destinationHost);
 
+exports.database = require("./db");
+
 exports.ethereum = require("./eth");

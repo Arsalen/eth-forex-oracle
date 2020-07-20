@@ -1,5 +1,7 @@
-const { destinationEp } = require("../helpers");
+const { destinationEp, database } = require("../helpers");
 const { Urls } = require("../settings");
+
+const { Acknowledgement } = require("../models");
 
 module.exports = (body) => {
 
@@ -8,11 +10,41 @@ module.exports = (body) => {
         destinationEp.post(Urls.destinationUrl, body)
             .then(onfulfilled => {
 
-                resolve(onfulfilled);
+                let data = JSON.parse(onfulfilled);
+
+                let ack = new Acknowledgement({
+                    hash: data.hash,
+                    status: data.status
+                })
+
+                database.insert(ack)
+                    .then(response => {
+
+                        resolve(response);
+                    })
+                    .catch(error => {
+
+                        reject(error);
+                    })
             })
             .catch(onrejected => {
                 
-                reject(onrejected);
+                let data = JSON.parse(onrejected);
+
+                let ack = new Acknowledgement({
+                    hash: data.hash,
+                    status: data.status
+                })
+
+                database.insert(ack)
+                    .then(response => {
+
+                        resolve(response);
+                    })
+                    .catch(error => {
+
+                        reject(error);
+                    })
             })
     })
 }

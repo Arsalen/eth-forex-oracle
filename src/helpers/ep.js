@@ -14,7 +14,7 @@ class EndPoint {
         };
     }
 
-    get(_path, _parameters=null) {
+    get(_path, _parameters) {
 
         this.options.method = 'GET';
         
@@ -47,7 +47,7 @@ class EndPoint {
         })
     }
 
-    post(_path, _body=null) {
+    post(_path, _body) {
 
         this.options.method = 'POST';
         let body = JSON.stringify(_body);

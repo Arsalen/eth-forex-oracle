@@ -13,8 +13,7 @@ module.exports = (body) => {
                 destinationService(response)
                     .then(onfulfilled => {
 
-                        let data = JSON.parse(onfulfilled).ack;
-                        resolve(data);
+                        resolve(onfulfilled);
                     })
                     .catch(onrejected => {
                 
@@ -22,7 +21,7 @@ module.exports = (body) => {
                     })
             })
             .catch(error => {
-                
+
                 reject(error);
             })
     })

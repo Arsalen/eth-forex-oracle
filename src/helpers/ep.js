@@ -1,5 +1,5 @@
-const http = require('http');
-const querystring = require('querystring');
+const http = require("http");
+const querystring = require("querystring");
 
 
 class EndPoint {
@@ -9,14 +9,14 @@ class EndPoint {
         this.options = {
             host: _host,
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
               }
         };
     }
 
     get(_path, _parameters) {
 
-        this.options.method = 'GET';
+        this.options.method = "GET";
         
         let parameters = querystring.stringify({
             pairs: JSON.parse(_parameters).toString()
@@ -28,7 +28,7 @@ class EndPoint {
 
             const request = http.request(this.options, (response) => {
 
-                let message = '';
+                let message = "";
     
                 response.on("data", (data) => {
                     message += data;
@@ -39,7 +39,7 @@ class EndPoint {
                 })
             })
     
-            request.on('error', (error) => {
+            request.on("error", (error) => {
                 reject(error.message);
             })
     
@@ -49,7 +49,7 @@ class EndPoint {
 
     post(_path, _body) {
 
-        this.options.method = 'POST';
+        this.options.method = "POST";
         let body = JSON.stringify(_body);
         this.options.headers["Content-Length"] = Buffer.byteLength(body);
         this.options.path = _path;
@@ -58,7 +58,7 @@ class EndPoint {
 
             const request = http.request(this.options, (response) => {
 
-                let message = '';
+                let message = "";
     
                 response.on("data", (data) => {
                     message += data;
@@ -69,7 +69,7 @@ class EndPoint {
                 })
             })
     
-            request.on('error', (error) => {
+            request.on("error", (error) => {
                 reject(error.message);
             })
     

@@ -1,4 +1,4 @@
-require('dotenv').config({path: '.env'});
+require("dotenv").config({path: ".env"});
 
 const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
@@ -21,7 +21,7 @@ class Ethereum {
 
         let account = this.web3.eth.accounts.decrypt(keystore, process.env.PASSWORD);
         
-        let tx = new Transaction({
+        let message = new Message({
             from: account.address,
             to: config.dappAddress,
             data: this.web3.utils.toHex(_data),
@@ -32,11 +32,11 @@ class Ethereum {
 
         return new Promise((resolve, reject) => {
 
-            account.signTransaction(tx)
+            account.signTransaction(message)
                 .then(res => {
 
-                    let message = new Message(res);
-                    resolve(message);
+                    let tx = new Transaction(res);
+                    resolve(tx);
                 })
                 .catch(err => {
                     reject(err);

@@ -1,4 +1,4 @@
-const Winston = require('winston');
+const Winston = require("winston");
 
 class Logger {
 
@@ -8,9 +8,9 @@ class Logger {
             defaultMeta: { date: new Date() },
             transports: [
                 new Winston.transports.Console(),
-                new Winston.transports.File({ filename: './logs/info.log', level: 'info' }),
-                new Winston.transports.File({ filename: './logs/warn.log', level: 'warn' }),
-                new Winston.transports.File({ filename: './logs/error.log', level: 'error' }),
+                new Winston.transports.File({ filename: "./logs/info.log", level: "info" }),
+                new Winston.transports.File({ filename: "./logs/warn.log", level: "warn" }),
+                new Winston.transports.File({ filename: "./logs/error.log", level: "error" }),
             ],
           });
     }

@@ -2,10 +2,12 @@ class Transaction {
 
     constructor(props) {
         
-        this.data = props.data;
-        this.to = props.to;
-        this.chainId = props.chainId;
-        this.gas = props.gas;
+        this.messageHash = props.messageHash;
+        this.v = props.v;
+        this.r = props.r;
+        this.s = props.s;
+        this.rawTransaction = props.rawTransaction;
+        this.transactionHash = props.transactionHash;
     }
 }
 

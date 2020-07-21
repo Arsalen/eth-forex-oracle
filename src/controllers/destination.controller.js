@@ -1,20 +1,19 @@
 const { destinationService } = require("../services");
 
-const { ethereum } = require("../helpers");
+const wrapper = require("../wrapper");
 
-
-module.exports = (body) => {
+module.exports = (item) => {
 
 
     return Promise.all(
 
-        body.pairs.map(data => {
+        item.pairs.map(pair => {
 
             return new Promise((resolve, reject) => {
-    
-                ethereum.sign(data)
+
+                wrapper.forexContract.set(pair)
                     .then(response => {
-    
+
                         destinationService(response)
                             .then(onfulfilled => {
     

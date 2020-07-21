@@ -4,10 +4,11 @@ const querystring = require('querystring');
 
 class EndPoint {
 
-    constructor(_host) {
+    constructor(_host, _port) {
 
         this.options = {
             host: _host,
+            port: _port,
             headers: {
                 'Content-Type': 'application/json',
               }
@@ -70,6 +71,7 @@ class EndPoint {
             })
     
             request.on('error', (error) => {
+                console.log('error: ', error)
                 reject(error.message);
             })
     

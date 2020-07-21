@@ -1,2 +1,2 @@
-exports.sourceService = require("./source");
-exports.destinationService = require("./destination");
+exports.sourceService = require("./source.service");
+exports.destinationService = require("./destination.service");

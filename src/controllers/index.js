@@ -1,2 +1,2 @@
-exports.sourceController = require("./source");
-exports.destinationController = require("./destination");
+exports.sourceController = require("./source.controller");
+exports.destinationController = require("./destination.controller");

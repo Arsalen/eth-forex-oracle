@@ -4,29 +4,28 @@ const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
 
 const config = require("../../config/app.config");
-const keystore = require("../../config/keystore");
+const keystore = require("../../config/key.store");
 
 const { Transaction, Message } = require("../models");
 
 class Ethereum {
 
-    constructor(_endPoint) {
+    constructor(_endPoint, _mnemonic) {
 
-        this.mnemonic = process.env.MNEMONIC.trim();
-        this.provider = new HDWalletProvider(this.mnemonic, _endPoint);
-        this.web3 = new Web3(this.provider);
+        this.hd = new HDWalletProvider(_mnemonic, _endPoint);
+        this.web3 = new Web3(this.hd);
     }
     
-    sign(_data) {
+    sign(_message) {
 
         let account = this.web3.eth.accounts.decrypt(keystore, process.env.PASSWORD);
         
         let message = new Message({
             from: account.address,
-            to: config.dappAddress,
-            data: this.web3.utils.toHex(_data),
-            chainId: config.network,
-            gas: config.gasLimit,
+            to: _message.to,
+            data: _message.data,
+            chainId: _message.chainId,
+            gas: _message.gas,
         })
 
 
@@ -46,5 +45,6 @@ class Ethereum {
 }
 
 const endPoint = `${config.infuraEndPoint}${process.env.INFURA_API_KEY}`;
+const mnemonic = process.env.MNEMONIC.trim();
 
-module.exports = new Ethereum(endPoint);;
+module.exports = new Ethereum(endPoint, mnemonic);;

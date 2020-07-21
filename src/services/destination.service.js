@@ -12,9 +12,11 @@ module.exports = (body) => {
 
                 let data = JSON.parse(onfulfilled);
 
+                console.log("data: ", data)
+
                 let ack = new Acknowledgement({
-                    hash: data.hash,
-                    status: data.status
+                    transactionHash: data.hash,
+                    confirmation: data.confirmation
                 })
 
                 database.insert(ack)
@@ -32,8 +34,8 @@ module.exports = (body) => {
                 let data = JSON.parse(onrejected);
 
                 let ack = new Acknowledgement({
-                    hash: data.hash,
-                    status: data.status
+                    transactionHash: data.hash,
+                    confirmation: data.confirmation
                 })
 
                 database.insert(ack)

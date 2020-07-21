@@ -2,8 +2,8 @@ class Acknowledgement {
 
     constructor(props) {
 
-        this.hash = props.hash;
-        this.status = props.status;
+        this.hash = props.transactionHash;
+        this.confirmation = props.confirmation;
     }
 }
 

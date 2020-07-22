@@ -1,4 +1,4 @@
-var CronJob = require("cron").CronJob;
+var CronJob = require('cron').CronJob;
 
 
 class Cron {

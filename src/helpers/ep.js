@@ -71,7 +71,6 @@ class EndPoint {
             })
     
             request.on('error', (error) => {
-                console.log('error: ', error)
                 reject(error.message);
             })
     

@@ -1,4 +1,4 @@
 module.exports = {
     sourceUrl: "/api/live?",
-    destinationUrl: "/api/v1/transactions"
+    destinationUrl: "/api/v1/pairs"
 }

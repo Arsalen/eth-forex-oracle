@@ -1,7 +1,7 @@
 const { destinationEp, database } = require("../helpers");
 const { Urls } = require("../settings");
 
-const { Acknowledgement } = require("../models");
+const { Receipt } = require("../models");
 
 module.exports = (body) => {
 
@@ -12,14 +12,9 @@ module.exports = (body) => {
 
                 let data = JSON.parse(onfulfilled);
 
-                console.log("data: ", data)
+                let receipt = new Receipt(data);
 
-                let ack = new Acknowledgement({
-                    transactionHash: data.hash,
-                    confirmation: data.confirmation
-                })
-
-                database.insert(ack)
+                database.insert(receipt)
                     .then(response => {
 
                         resolve(response);
@@ -33,12 +28,9 @@ module.exports = (body) => {
                 
                 let data = JSON.parse(onrejected);
 
-                let ack = new Acknowledgement({
-                    transactionHash: data.hash,
-                    confirmation: data.confirmation
-                })
+                let receipt = new Receipt(data);
 
-                database.insert(ack)
+                database.insert(receipt)
                     .then(response => {
 
                         resolve(response);

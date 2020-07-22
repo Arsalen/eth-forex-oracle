@@ -1,1 +1,1 @@
-# eth-forex-reporter
+# eth-forex-oracle

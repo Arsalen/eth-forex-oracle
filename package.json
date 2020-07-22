@@ -1,5 +1,5 @@
 {
-  "name": "eth-forex-reporter",
+  "name": "eth-forex-oracle",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arsalen/eth-forex-reporter.git"
+    "url": "git+https://github.com/Arsalen/eth-forex-oracle.git"
   },
   "keywords": [
     "Ethereum",
@@ -17,9 +17,9 @@
   "author": "Arsalen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Arsalen/eth-forex-reporter/issues"
+    "url": "https://github.com/Arsalen/eth-forex-oracle/issues"
   },
-  "homepage": "https://github.com/Arsalen/eth-forex-reporter#readme",
+  "homepage": "https://github.com/Arsalen/eth-forex-oracle#readme",
   "dependencies": {
     "cron": "^1.8.2",
     "dotenv": "^8.2.0",

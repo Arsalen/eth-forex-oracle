@@ -1,15 +1,13 @@
 pipeline {
 
     agent any
-
+    
     parameters {
-
-        choice {
-
+        choice (
             name: "START", choices: ["NO", "YES"], description: "To start or not to start"
-        }
+        )
     }
-
+    
     stages {
 
         stage("SETUP") {
@@ -25,8 +23,8 @@ pipeline {
                 withCredentials ([
 
                     file(credentialsId: "env", variable: "environment"),
-                    file(credentialsId: "config", variable: "configuration"),
                     file(credentialsId: "pm2", variable: "process"),
+                    file(credentialsId: "config", variable: "configuration"),
                     file(credentialsId: "key", variable: "keystore"),
                     file(credentialsId: "dapp", variable: "forex")
                 ]) {

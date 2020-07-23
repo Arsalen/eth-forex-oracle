@@ -16,16 +16,16 @@ class Ethereum {
         this.web3 = new Web3(this.hd);
     }
     
-    sign(_message) {
+    sign(data) {
 
         let account = this.web3.eth.accounts.decrypt(keystore, process.env.PASSWORD);
         
         let message = new Message({
             from: account.address,
-            to: _message.to,
-            data: _message.data,
-            chainId: _message.chainId,
-            gas: _message.gas,
+            to: data.to,
+            data: data.data,
+            chainId: data.chainId,
+            gas: data.gas,
         })
 
 
@@ -34,8 +34,8 @@ class Ethereum {
             account.signTransaction(message)
                 .then(res => {
 
-                    let tx = new Transaction(res);
-                    resolve(tx);
+                    let transaction = new Transaction(res);
+                    resolve(transaction);
                 })
                 .catch(err => {
                     reject(err);

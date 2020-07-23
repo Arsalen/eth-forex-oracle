@@ -1,16 +1,22 @@
 const { sourceEp } = require("../helpers");
-const { logger } = require("../commons");
 const { Urls } = require("../settings");
+const { logger } = require("../commons");
 
-module.exports = (body) => {
+const { Item } = require("../models");
+
+module.exports = (pairs) => {
 
     return new Promise((resolve, reject) => {
 
-        sourceEp.get(Urls.sourceUrl, body)
+        sourceEp.get(Urls.sourceUrl, pairs)
             .then(onfulfilled => {
 
-                logger.info(onfulfilled);
-                resolve(onfulfilled);
+                let rates = JSON.parse(onfulfilled).rates;
+
+                let item = new Item(rates)
+
+                logger.info(item);
+                resolve(item);
             })
             .catch(onrejected => {
                 

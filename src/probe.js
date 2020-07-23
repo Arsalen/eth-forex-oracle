@@ -1,28 +1,25 @@
 require('dotenv').config({path: '.env'});
 const { sourceController, destinationController } = require("./controllers");
-const { Item } = require("./models");
 
 module.exports = () => {
 
     let pairs = process.env.PAIRS;
 
     sourceController(pairs)
-        .then(response => {
-
-            let item = new Item(response);
+        .then(onfulfilled => {
             
-            destinationController(item)
-                .then(res => {
+            destinationController(onfulfilled)
+                .then(response => {
                     
-                    console.log(res);
+                    console.log(response);
                 })
-                .catch(err => {
+                .catch(error => {
 
-                    console.error(err);
+                    console.error(error);
                 })
         })
-        .catch(error => {
+        .catch(onrejected => {
 
-            console.error(error);
+            console.error(onrejected);
         })
 }

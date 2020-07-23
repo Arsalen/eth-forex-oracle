@@ -3,11 +3,11 @@ const { Urls } = require("../settings");
 
 const { Receipt } = require("../models");
 
-module.exports = (body) => {
+module.exports = (transaction) => {
 
     return new Promise((resolve, reject) => {
 
-        destinationEp.post(Urls.destinationUrl, body)
+        destinationEp.post(Urls.destinationUrl, transaction)
             .then(onfulfilled => {
 
                 let data = JSON.parse(onfulfilled);
@@ -26,19 +26,7 @@ module.exports = (body) => {
             })
             .catch(onrejected => {
                 
-                let data = JSON.parse(onrejected);
-
-                let receipt = new Receipt(data);
-
-                database.insert(receipt)
-                    .then(response => {
-
-                        resolve(response);
-                    })
-                    .catch(error => {
-
-                        reject(error);
-                    })
+                reject(onrejected);
             })
     })
 }

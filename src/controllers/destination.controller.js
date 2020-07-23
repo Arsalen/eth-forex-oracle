@@ -15,13 +15,13 @@ module.exports = (item) => {
                     .then(response => {
 
                         destinationService(response)
-                            .then(onfulfilled => {
+                            .then(success => {
     
-                                resolve(onfulfilled);
+                                resolve(success);
                             })
-                            .catch(onrejected => {
+                            .catch(failure => {
                     
-                                reject(onrejected);
+                                reject(failure);
                             })
                     })
                     .catch(error => {

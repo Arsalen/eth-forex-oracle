@@ -1,14 +1,13 @@
 const { sourceService } = require("../services");
 
-module.exports = (body) => {
+module.exports = (pairs) => {
     
     return new Promise((resolve, reject) => {
 
-        sourceService(body)
+        sourceService(pairs)
             .then(onfulfilled => {
                 
-                let data = JSON.parse(onfulfilled).rates;
-                resolve(data);
+                resolve(onfulfilled);
             })
             .catch(onrejected => {
                 

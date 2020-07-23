@@ -1,7 +1,8 @@
 node_modules/
 package-lock.json
 .env
-artifacts/*.json
 config/*.json
 logs/*.log
+artifacts/*.json
 db/*.db
+app.process.js

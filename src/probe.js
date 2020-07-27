@@ -11,11 +11,11 @@ module.exports = () => {
             destinationController(onfulfilled)
                 .then(response => {
                     
-                    console.log(response);
+                    console.log(JSON.stringify(response));
                 })
                 .catch(error => {
 
-                    console.error(error);
+                    console.error(JSON.stringify(error));
                 })
         })
         .catch(onrejected => {

@@ -6,7 +6,7 @@ const Web3 = require("web3");
 const config = require("../../config/app.config");
 const keystore = require("../../config/key.store");
 
-const { Transaction, Message } = require("../models");
+const { Transaction, EthMessage } = require("../models");
 
 class Ethereum {
 
@@ -20,7 +20,7 @@ class Ethereum {
 
         let account = this.web3.eth.accounts.decrypt(keystore, process.env.PASSWORD);
         
-        let message = new Message({
+        let message = new EthMessage({
             from: account.address,
             to: data.to,
             data: data.data,

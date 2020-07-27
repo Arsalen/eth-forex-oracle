@@ -1,8 +1,6 @@
 const { destinationEp, database } = require("../helpers");
 const { Urls } = require("../settings");
 
-const { Receipt } = require("../models");
-
 module.exports = (transaction) => {
 
     return new Promise((resolve, reject) => {
@@ -10,11 +8,9 @@ module.exports = (transaction) => {
         destinationEp.post(Urls.destinationUrl, transaction)
             .then(onfulfilled => {
 
-                let data = JSON.parse(onfulfilled);
+                let message = JSON.parse(onfulfilled);
 
-                let receipt = new Receipt(data);
-
-                database.insert(receipt)
+                database.insert(message)
                     .then(response => {
 
                         resolve(response);

@@ -7,7 +7,7 @@ class DataBase {
     }
 
     insert(data) {
-
+        
         return new Promise((resolve, reject) => {
 
             this.nedb.insert(data, (onrejected, onfulfilled) => {
@@ -18,21 +18,6 @@ class DataBase {
             });
         })
     }
-
-    find(data=null) {
-
-        return new Promise((resolve, reject) => {
-
-            this.nedb.find(data, onfulfilled => {
-
-                if(onfulfilled)
-                    resolve(onfulfilled);
-                reject(null);
-            })
-        })
-    }
-
-
 }
 
 module.exports = new DataBase();

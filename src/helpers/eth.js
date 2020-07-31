@@ -4,7 +4,7 @@ const Web3 = require("web3");
 const config = require("../../config/app.config");
 const keystore = require("../../config/key.store");
 
-const { Transaction, Blob } = require("../models");
+const { Transaction, Blob, Account } = require("../models");
 
 class Ethereum {
 
@@ -12,30 +12,33 @@ class Ethereum {
 
         this.hd = new HDWalletProvider(_mnemonic, _endPoint);
         this.web3 = new Web3(this.hd);
+
+        this.account = new Account(this.web3, keystore, process.env.SECRET);
     }
     
     sign(message) {
 
-        let account = this.web3.eth.accounts.decrypt(keystore, process.env.SECRET);
+        this.account.nonce++;
         
         let blob = new Blob({
-            from: account.address,
+            from: this.account.id.address,
             to: message.to,
             data: message.data,
             chainId: message.chainId,
             gas: message.gas,
+            nonce: this.account.nonce
         })
-
 
         return new Promise((resolve, reject) => {
 
-            account.signTransaction(blob)
+            this.account.id.signTransaction(blob)
                 .then(res => {
 
                     let transaction = new Transaction(res);
                     resolve(transaction);
                 })
                 .catch(err => {
+
                     reject(err);
                 })
         })

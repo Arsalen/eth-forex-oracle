@@ -7,23 +7,15 @@ module.exports = () => {
 
     let pairs = process.env.PAIRS;
 
-    let transactions = [];
-
     sourceController(pairs)
-        .then(onfulfilled => {
+        .then(async onfulfilled => {
 
-            onfulfilled.pairs.map(pair => {
+
+            await onfulfilled.pairs.map(pair => {
 
                 signer.set(pair)
                     .then(response => {
-                        transactions.push(response);
-                    })
-                    .catch(error => {
-                        console.error(error)
-                    })
-                    .finally(final => {
-
-                        destinationController(transactions)
+                        destinationController(response)
                             .then(res => {
                             
                                 console.log(JSON.stringify(res));
@@ -33,7 +25,14 @@ module.exports = () => {
                                 console.error(JSON.stringify(err));
                             })
                     })
+                    .catch(error => {
+                        console.error(error)
+                    })
+                    .finally(final => {
+
+                    })
             })
+
         })
         .catch(onrejected => {
 

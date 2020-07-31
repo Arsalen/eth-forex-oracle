@@ -4,8 +4,6 @@ var config = require("./config/app.config");
 var { Cron } = require("./src/commons");
 var probe = require("./src/probe");
 
-probe()
-
 var job = new Cron(config.cron.pattern, () => {
     probe();
 })

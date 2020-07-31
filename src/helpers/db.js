@@ -1,9 +1,12 @@
+const config = require("../../config/app.config");
+
 const NeDB = require("nedb");
 
 class DataBase {
 
     constructor() {
-        this.nedb = new NeDB({ filename: "./db/transactions.db", autoload: true });
+
+        this.nedb = new NeDB({ filename: `./db/${config.db.name}.db`, autoload: true });
     }
 
     insert(data) {

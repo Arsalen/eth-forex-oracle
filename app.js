@@ -6,7 +6,7 @@ var probe = require("./src/probe");
 
 probe()
 
-var job = new Cron(config.pattern, () => {
+var job = new Cron(config.cron.pattern, () => {
     probe();
 })
 

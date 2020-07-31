@@ -1,4 +1,4 @@
 exports.Item = require("./item");
-exports.EthMessage = require("./ethmessage");
+exports.Blob = require("./blob");
 exports.Transaction = require("./transaction");
 exports.Receipt = require("./receipt");

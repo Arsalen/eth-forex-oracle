@@ -11,6 +11,7 @@ class EndPoint {
             port: _port,
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Basic ' + Buffer.from(process.env.LOGIN + ':' + process.env.PASSWORD).toString('base64')
               }
         };
     }

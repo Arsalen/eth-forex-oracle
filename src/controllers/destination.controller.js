@@ -1,31 +1,20 @@
 const { destinationService } = require("../services");
 
-const wrapper = require("../wrapper");
-
-module.exports = (item) => {
-
+module.exports = (transactions) => {
 
     return Promise.all(
 
-        item.pairs.map(pair => {
+        transactions.map(transaction => {
 
             return new Promise((resolve, reject) => {
 
-                wrapper.forexContract.set(pair)
+                destinationService(transaction)
                     .then(response => {
-
-                        destinationService(response)
-                            .then(success => {
     
-                                resolve(success);
-                            })
-                            .catch(failure => {
-                    
-                                reject(failure);
-                            })
+                        resolve(response);
                     })
                     .catch(error => {
-    
+                    
                         reject(error);
                     })
             })
@@ -35,6 +24,6 @@ module.exports = (item) => {
             return onfulfilled;
         })
         .catch(onrejected => {
-            return onrejected;
+            throw onrejected;
         })
 }

@@ -1,4 +1,4 @@
-class ForexContract {
+module.exports = class AppContract {
 
     constructor(provider, descriptor) {
 
@@ -18,7 +18,7 @@ class ForexContract {
         const network = this.descriptor.network;
         const gasLimit = this.descriptor.gasLimit;
 
-        let data = {
+        let message = {
             to: address,
             data: callData,
             chainId: network,
@@ -27,7 +27,7 @@ class ForexContract {
 
         return new Promise((resolve, reject) => {
 
-            this.provider.sign(data)
+            this.provider.sign(message)
                 .then(onfulfilled => {
 
                     resolve(onfulfilled);
@@ -39,5 +39,3 @@ class ForexContract {
         })
     }
 }
-
-module.exports = ForexContract;

@@ -1,6 +1,8 @@
 const { destinationEp, database } = require("../helpers");
 const { Urls } = require("../settings");
 
+const { logger } = require("../commons");
+
 module.exports = (transaction) => {
 
     return new Promise((resolve, reject) => {
@@ -13,10 +15,12 @@ module.exports = (transaction) => {
                 database.insert(message)
                     .then(response => {
 
+                        logger.info(response);
                         resolve(response);
                     })
                     .catch(error => {
 
+                        logger.err(error);
                         reject(error);
                     })
             })

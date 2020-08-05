@@ -8,14 +8,12 @@ module.exports = (pairs) => {
 
     return new Promise((resolve, reject) => {
 
-                let item = new Item({USDEUR:{rate:0.85796,timestamp:1595807525}, USDTND:{rate:2.71523,timestamp:1595807525}})
+                let item = new Item({USDEUR:{rate:0.85796,timestamp:1595807525}, USDTND:{rate:2.71523,timestamp:1595807526}, USDJPY:{rate:105.68104,timestamp:1595807527}})
 
                 logger.info(item);
                 resolve(item);
             })
 }
-
-// {\"pairs\":[{\"USDEUR\":{\"rate\":0.85796,\"timestamp\":1595807525}}]}
 
 // module.exports = (pairs) => {
 

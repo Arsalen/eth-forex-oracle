@@ -3,36 +3,50 @@ const { sourceController, destinationController } = require("./controllers");
 
 const { signer } = require("./commons");
 
+
+
 module.exports = () => {
 
     let pairs = process.env.PAIRS;
 
     sourceController(pairs)
-        .then(async onfulfilled => {
+        .then(onfulfilled => {
 
 
-            await onfulfilled.pairs.map(pair => {
+            Promise.all(
 
-                signer.set(pair)
-                    .then(response => {
-                        destinationController(response)
-                            .then(res => {
+                onfulfilled.pairs.map(pair => {
+
+                    return new Promise((resolve, reject) => {
+
+                        signer.set(pair)
+                            .then(response => {
+                                resolve(response);
+                            })
+                            .catch(error => {
+                                reject(error);
+                            })
+                    })
+                })
+            )
+            .then(transactions => {
+
+                transactions.map(tx => {
+
+                    destinationController(tx)
+                        .then(success => {
                             
-                                console.log(JSON.stringify(res));
-                            })
-                            .catch(err => {
+                            console.log(JSON.stringify({ SUCCESS: success.result.tx }));
+                        })
+                        .catch(failure => {
         
-                                console.error(JSON.stringify(err));
-                            })
-                    })
-                    .catch(error => {
-                        console.error(error)
-                    })
-                    .finally(final => {
-
-                    })
+                            console.error(JSON.stringify({ FAILURE: failure.result.tx }));
+                        })
+                })                
             })
-
+            .catch(crap => {
+                console.error(crap);
+            })
         })
         .catch(onrejected => {
 

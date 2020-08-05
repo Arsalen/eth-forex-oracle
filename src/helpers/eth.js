@@ -17,9 +17,9 @@ class Ethereum {
     }
     
     sign(message) {
-
-        this.account.nonce++;
         
+        console.log("nonce: ", this.account.nonce)
+
         let blob = new Blob({
             from: this.account.id.address,
             to: message.to,
@@ -29,6 +29,8 @@ class Ethereum {
             nonce: this.account.nonce
         })
 
+        this.account.nonce++;
+        
         return new Promise((resolve, reject) => {
 
             this.account.id.signTransaction(blob)

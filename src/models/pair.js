@@ -2,8 +2,8 @@ class Pair {
 
     constructor(props) {
 
-        this.rate = props.rate;
-        this.timestamp = props.timestamp;
+        this.rate = props.rate.toString();
+        this.timestamp = props.timestamp.toString();
     }
 }
 

@@ -19,14 +19,13 @@ module.exports = () => {
 
                     return new Promise((resolve, reject) => {
 
-                        // signer.set(pair)
-                        //     .then(response => {
-                        //         resolve(response);
-                        //     })
-                        //     .catch(error => {
-                        //         reject(error);
-                        //     })
-resolve(pair)
+                        signer.set(pair)
+                            .then(response => {
+                                resolve(response);
+                            })
+                            .catch(error => {
+                                reject(error);
+                            })
                     })
                 })
             )
@@ -34,16 +33,15 @@ resolve(pair)
 
                 transactions.map(tx => {
 
-                    // destinationController(tx)
-                    //     .then(success => {
+                    destinationController(tx)
+                        .then(success => {
                             
-                    //         console.log(JSON.stringify({ SUCCESS: success.result.tx }));
-                    //     })
-                    //     .catch(failure => {
+                            console.log(JSON.stringify({ SUCCESS: success.result.tx }));
+                        })
+                        .catch(failure => {
         
-                    //         console.error(JSON.stringify({ FAILURE: failure.result.tx }));
-                    //     })
-console.log("tx: ", tx)
+                            console.error(JSON.stringify({ FAILURE: failure.result.tx }));
+                        })
                 })                
             })
             .catch(crap => {

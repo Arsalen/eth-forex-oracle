@@ -3,7 +3,7 @@ mapper = (data) => {
     let objects = [];
 
     if(!data)
-        throw("No data");
+        throw("Something went wrong, probably your free request volume has been reached, otherwise please contact support.");
 
     let keys = Object.keys(data);
 

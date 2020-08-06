@@ -10,8 +10,7 @@ class EndPoint {
             host: _host,
             port: _port,
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Basic ' + Buffer.from(process.env.LOGIN + ':' + process.env.PASSWORD).toString('base64')
+                'Content-Type': 'application/json'
               }
         };
     }
@@ -54,6 +53,7 @@ class EndPoint {
         this.options.method = 'POST';
         let body = JSON.stringify(_body);
         this.options.headers["Content-Length"] = Buffer.byteLength(body);
+        this.options.headers["Authorization"] = 'Basic ' + Buffer.from(process.env.LOGIN + ':' + process.env.PASSWORD).toString('base64');
         this.options.path = _path;
 
         return new Promise((resolve, reject) => {

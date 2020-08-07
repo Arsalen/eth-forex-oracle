@@ -38,7 +38,7 @@ On [MEW](https://www.myetherwallet.com/), generate a wallet through a mnemonic p
 
 Configuration and secret files are omitted, you can though setup your own if you have managed to follow the prerequisites.
 
-.env
+```.env```
 
 ```INI
 PAIRS=["USDEUR", "USDTND"]  # Pairs you desire to submit their rates to the contract.
@@ -52,7 +52,7 @@ LOGIN="abc" # Basic auth username you used to register to the API
 PASSWORD="xyz"  # Basic auth password you used to register to the API
 ```
 
-app.process.js
+```app.process.js```
 
 ```JS
 module.exports = {
@@ -68,7 +68,7 @@ module.exports = {
 };
 ```
 
-config/app.config.json
+```config/app.config.json``` 
 
 ```JSON
 {
@@ -77,12 +77,12 @@ config/app.config.json
         "port": 80
     },
     "destination":{
-        "host": "<ip>", // API ip address
+        "host": "<ip>",
         "port": 3000
     },
     "infura":{
         "endPoint": "https://ropsten.infura.io/v3/",
-        "key": "abcd1efgh2ijkl3mnop4qrst5uvwx6yz" // Infura api key
+        "key": "abcd1efgh2ijkl3mnop4qrst5uvwx6yz"
     },
     "blockchain":{
         "gasLimit": 100000,
@@ -97,7 +97,7 @@ config/app.config.json
  }
 ```
 
-key.store.js
+```key.store.js```
 
 ```JS
 require("dotenv").config({path: ".env"});
@@ -124,13 +124,13 @@ const keystore = web3.eth.accounts.encrypt(account.privateKey, password);
 console.log(JSON.stringify(keystore));
 ```
 
-config/key.store.json From https://www.myetherwallet.com/create-wallet then encrypted using key.store.js
+```config/key.store.json``` From https://www.myetherwallet.com/create-wallet then encrypted using key.store.js
 
 ```JSON
 {"version":3,"id":"<id>","address":"<address","crypto":{"ciphertext":"<crypto.ciphertext>","cipherparams":{"iv":"<crypto.cipherparams.iv>"},"cipher":"<crypto.cipher>","kdf":"<cryoto.kdf>","kdfparams":{"dklen":"<crypto.kdfparams.dklen>","salt":"<crypto.kdfparams.salt>","n":"<crypto.kdfparams.n>","r":"<crypto.kdfparams.dkler>","p":"<crypto.kdfparams.p>"},"mac":"<crypto.mac>"}}
 ```
 
-artifacts/App.json From https://github.com/Arsalen/eth-forex-dapp.git
+``` artifacts/App.json ``` From https://github.com/Arsalen/eth-forex-dapp.git
 
 ```JSON
 {

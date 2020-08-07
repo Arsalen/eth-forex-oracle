@@ -178,17 +178,14 @@ Once you successfully registred, install dependencies then run the oracle
 
 ```BASH
 npm i --save
-npm start
+pm2 start app.process.js
 
-# {"message":"{\"pairs\":[{\"USDEUR\":{\"rate\":\"0.842601\",\"timestamp\":\"1596682985\"}},{\"USDTND\":{\"rate\":\"2.723994\",\"timestamp\":\"1596682985\"}},{\"USDCHF\":{\"rate\":\"0.908603\",\"timestamp\":\"1596682985\"}},{\"USDJPY\":{\"rate\":\"105.517026\",\"timestamp\":\"1596682985\"}}]}","level":"info","date":"2020-08-07T04:34:37.150Z"}
-# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x699a1d9a0be0bce19419c1a5121db27e78e49c6a478f245703a564b63d298c8a\",\"description\":\"Successfully submitted message bound to ckdjqir6j0000985nbmpb6w72\"},\"timestamp\":\"2020-08-07T04:34:50.309Z\",\"_id\":\"GX8KWMZOgGmMGeLt\"}","level":"info","date":"2020-08-07T04:34:37.150Z"}
-# {"SUCCESS":"0x699a1d9a0be0bce19419c1a5121db27e78e49c6a478f245703a564b63d298c8a"}
-# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x06323e51875de8f9fc9616612a9232fcb1e43f3fb6278c3b71bf0a952fab1148\",\"description\":\"Successfully submitted message bound to ckdjqir6j0000985nbmpb6w72\"},\"timestamp\":\"2020-08-07T04:34:50.311Z\",\"_id\":\"00fiTYQVTQJ0Lcnj\"}","level":"info","date":"2020-08-07T04:34:37.150Z"}
-# {"SUCCESS":"0x06323e51875de8f9fc9616612a9232fcb1e43f3fb6278c3b71bf0a952fab1148"}
-# {"message":"{\"result\":{\"status\":true,\"tx\":\"0xf2db82d8954505932cbec1eacb687e204edc3896a3a58f391881dc3ec10d6653\",\"description\":\"Successfully submitted message bound to ckdjqir6j0000985nbmpb6w72\"},\"timestamp\":\"2020-08-07T04:34:50.312Z\",\"_id\":\"8iMqFrHHV4zI7lQe\"}","level":"info","date":"2020-08-07T04:34:37.150Z"}
-# {"SUCCESS":"0xf2db82d8954505932cbec1eacb687e204edc3896a3a58f391881dc3ec10d6653"}
-# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x6925785726b26b4ad98a0e6d43ddea510a5dc11c53b209031f06184e00791c05\",\"description\":\"Successfully submitted message bound to ckdjqir6j0000985nbmpb6w72\"},\"timestamp\":\"2020-08-07T04:34:50.313Z\",\"_id\":\"SK7BhIw02VvieJyN\"}","level":"info","date":"2020-08-07T04:34:37.150Z"}
-# {"SUCCESS":"0x6925785726b26b4ad98a0e6d43ddea510a5dc11c53b209031f06184e00791c05"}
+pm2 logs eth-oracle
+# {"message":"{\"pairs\":[{\"USDEUR\":{\"rate\":\"0.842665\",\"timestamp\":\"1596681065\"}},{\"USDTND\":{\"rate\":\"2.723971\",\"timestamp\":\"1596681065\"}}]}","level":"info","date":"2020-08-07T10:28:31.447Z"}
+# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x94b2ff056fda6bfd3c0c7a79b4114e903555ccb41a928f283977789555c86279\",\"description\":\"Successfully submitted message bound to ckdk321ag00009x5ng9bd73bn\"},\"timestamp\":\"2020-08-07T10:28:44.704Z\",\"_id\":\"rFqPczth8Zh741zF\"}","level":"info","date":"2020-08-07T10:28:31.447Z"}
+# {"SUCCESS":"0x94b2ff056fda6bfd3c0c7a79b4114e903555ccb41a928f283977789555c86279"}
+# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x39d3e25338aac331ca7bc549b1c11ed9cad5264b5274b06da16fca57ac19c76f\",\"description\":\"Successfully submitted message bound to ckdk321ag00009x5ng9bd73bn\"},\"timestamp\":\"2020-08-07T10:28:44.706Z\",\"_id\":\"VeVOZTFHQoas2YjC\"}","level":"info","date":"2020-08-07T10:28:31.447Z"}
+# {"SUCCESS":"0x39d3e25338aac331ca7bc549b1c11ed9cad5264b5274b06da16fca57ac19c76f"}
 ```
 
 ### Jenkins

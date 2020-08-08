@@ -181,11 +181,11 @@ npm i --save
 pm2 start app.process.js
 
 pm2 logs eth-oracle
-# {"message":"{\"pairs\":[{\"USDEUR\":{\"rate\":\"0.842665\",\"timestamp\":\"1596681065\"}},{\"USDTND\":{\"rate\":\"2.723971\",\"timestamp\":\"1596681065\"}}]}","level":"info","date":"2020-08-07T10:28:31.447Z"}
-# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x94b2ff056fda6bfd3c0c7a79b4114e903555ccb41a928f283977789555c86279\",\"description\":\"Successfully submitted message bound to ckdk321ag00009x5ng9bd73bn\"},\"timestamp\":\"2020-08-07T10:28:44.704Z\",\"_id\":\"rFqPczth8Zh741zF\"}","level":"info","date":"2020-08-07T10:28:31.447Z"}
-# {"SUCCESS":"0x94b2ff056fda6bfd3c0c7a79b4114e903555ccb41a928f283977789555c86279"}
-# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x39d3e25338aac331ca7bc549b1c11ed9cad5264b5274b06da16fca57ac19c76f\",\"description\":\"Successfully submitted message bound to ckdk321ag00009x5ng9bd73bn\"},\"timestamp\":\"2020-08-07T10:28:44.706Z\",\"_id\":\"VeVOZTFHQoas2YjC\"}","level":"info","date":"2020-08-07T10:28:31.447Z"}
-# {"SUCCESS":"0x39d3e25338aac331ca7bc549b1c11ed9cad5264b5274b06da16fca57ac19c76f"}
+# {"message":"{\"pairs\":[{\"USDEUR\":{\"rate\":\"0.845935\",\"timestamp\":\"1596796085\"}},{\"USDTND\":{\"rate\":\"2.712992\",\"timestamp\":\"1596796085\"}}]}","level":"info","date":"2020-08-08T00:42:49.612Z"}
+# {"message":"{\"result\":{\"status\":true,\"tx\":\"0x1774b3f2a973c668a017de7401e7800f95ff2854911b3f1f10520a27062d861b\",\"description\":\"Successfully submitted message bound to ckdkxjfoj0000m75n71zs47db\"},\"timestamp\":\"2020-08-08T00:43:00.876Z\",\"_id\":\"hqTT6ZBrcisYqfOz\"}","level":"info","date":"2020-08-08T00:42:49.612Z"}
+# {"SUCCESS":"0x1774b3f2a973c668a017de7401e7800f95ff2854911b3f1f10520a27062d861b"}
+# {"message":"{\"result\":{\"status\":true,\"tx\":\"0xed37f25c02af2729f36011705cda3e50ca7daae1398413271d7601d08a5cfa7b\",\"description\":\"Successfully submitted message bound to ckdkxjfoj0000m75n71zs47db\"},\"timestamp\":\"2020-08-08T00:43:00.881Z\",\"_id\":\"bvRDRh7rI8B5hMl2\"}","level":"info","date":"2020-08-08T00:42:49.612Z"}
+# {"SUCCESS":"0xed37f25c02af2729f36011705cda3e50ca7daae1398413271d7601d08a5cfa7b"}
 ```
 
 ### Jenkins

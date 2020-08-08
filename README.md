@@ -3,7 +3,7 @@
 First out of three components of the ethereum-oracle-api-dapp project:
   - ethereum oracle
   - [ethereum API server](https://github.com/Arsalen/eth-api)
-  - [ethereum sample dapp](https://github.com/Arsalen/eth-forex-dapp)
+  - [ethereum sample dapp](https://github.com/Arsalen/eth-forex-dapp) (An instance is already deployed [here](https://ropsten.etherscan.io/address/0x7Fe0c23379aBd49eE51D33163bdE00AacF70f443))
 
 ## Overview
 
